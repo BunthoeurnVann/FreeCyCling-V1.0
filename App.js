@@ -19,7 +19,7 @@ export default class App extends Component{
     return (
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Login" component={Login} options={{headerShown: false}}/>
+          <Stack.Screen name= "Login" component={Login} options={{headerShown: false}}/>
           <Stack.Screen name="SignUp" component={SignUp} options={{headerShown: false}}/>
           <Stack.Screen name="BottomNavigation" component={BottomNavigation} options={{headerShown: false}}/>
           <Stack.Screen name="Setting" component={Setting} options={{headerShown: false}}/>

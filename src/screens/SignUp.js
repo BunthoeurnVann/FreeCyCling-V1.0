@@ -6,11 +6,13 @@ class Registration extends Component {
     return(
       <View style={styles.container}>
       <ImageBackground source={require('../images/login.png')} style={styles.image}>
+      <View style={{alignItems: "center", justifyContent: "center"}}>
         <Text style={{textAlign: 'center', fontSize: 25, fontFamily: 'Montserrat-Bold',marginTop: 40,marginBottom:15}}>Registration</Text>
       <View style={styles.border}>
                   <Image source = {{uri:'https://www.flaticon.com/premium-icon/icons/svg/1144/1144760.svg'}}
                   style = {{ width: 35,height:35, marginLeft: 10, marginTop: 5}}/>
                 <TextInput
+                style={styles.inputText}
                       placeholder="Username"  
                       onChangeText={(text) => this.setState({text})}  
                   />   
@@ -19,6 +21,7 @@ class Registration extends Component {
                   <Image  source = {{uri:'https://www.flaticon.com/premium-icon/icons/svg/542/542638.svg'}}
                   style = {{ width: 30,height:30, marginLeft: 10, marginTop: 7}}/>
                 <TextInput
+                style={styles.inputText}
                       placeholder="Email"  
                       onChangeText={(text) => this.setState({text})}  
                   />   
@@ -27,6 +30,8 @@ class Registration extends Component {
                   <Image source = {{uri:'https://www.flaticon.com/premium-icon/icons/svg/2889/2889676.svg'}}
                   style = {{ width: 35,height:35, marginLeft: 10, marginTop: 5}}/>
                 <TextInput
+                style={styles.inputText}
+                secureTextEntry={true}
                       placeholder="Password"  
                       onChangeText={(text) => this.setState({text})}  
                   />   
@@ -40,6 +45,7 @@ class Registration extends Component {
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Login')}>
                     <Text style={{color: '#B14297', fontFamily: 'Montserrat-Bold'}}> Login</Text>
                 </TouchableOpacity>
+                </View>
                 </View>
       </ImageBackground>
     </View>
@@ -63,16 +69,15 @@ export default Registration
       fontWeight: "bold",
     },
     border:{
-      marginLeft: 30,
       width: 300,
       marginTop: 5,
-      borderWidth: 3,
+      borderWidth: 1,
       borderRadius: 30,
-      flexDirection: 'row'
+      flexDirection: 'row',
+      borderColor: '#707070'
     },
     text: {
-      width: 300,
-      marginLeft: 30, 
+      width: 300, 
       borderWidth: 2,
       padding: 10,
       borderColor: '#0000',
@@ -83,9 +88,12 @@ export default Registration
       textAlign: 'center'
     },
     login: {
-      marginLeft: 65,
       flexDirection: 'row',
       marginTop: 15,
+    },
+    inputText:{
+      fontFamily: 'Montserrat-Regular',
+      width: 300
     }
   });
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, TouchableOpacity, Image, Text, StyleSheet, ScrollView, FlatList, TextInput } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 class EachChat extends Component {
     state = {
         people: [
@@ -13,9 +14,7 @@ class EachChat extends Component {
             <View style={{marginBottom: 510}}>
                 <View style={styles.headerBar}>
                     <TouchableOpacity onPress={() => this.props.navigation.navigate('Chat')}>
-                        <Image style={{ height: 30, width: 30, justifyContent: "center", marginLeft: 15 }}
-                            source={require('../images/backarrow.png')}
-                        />
+                    <Icon name="ios-arrow-back" color='#ffffff' size={50} style={styles.icon}/>
                     </TouchableOpacity>
                     <Text style={styles.textHeader}>MaDaKac</Text>
                 </View>
@@ -142,6 +141,9 @@ const styles = StyleSheet.create({
     sendMessage: {
         marginBottom: 60,
         flexDirection: "row"
-    }
+    },
+    icon:{
+        marginLeft: 30
+      }
 });
 export default EachChat; 

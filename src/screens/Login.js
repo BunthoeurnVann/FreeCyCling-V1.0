@@ -6,11 +6,13 @@ class Login extends Component {
     return(
       <View style={styles.container}>
       <ImageBackground source={require('../images/login.png')} style={styles.image}>
+        <View style={{alignItems: "center", justifyContent: "center"}}>
         <Text style={{textAlign: 'center', fontSize: 25, fontFamily: 'Montserrat-Bold',marginTop: 60,marginBottom:15}}>Login</Text>
       <View style={styles.border}>
                   <Image source = {{uri:'https://www.flaticon.com/premium-icon/icons/svg/1144/1144760.svg'}}
                   style = {{ width: 35,height:35, marginLeft: 10, marginTop: 5}}/>
                 <TextInput
+                style={styles.inputText}
                       placeholder="Username"  
                       onChangeText={(text) => this.setState({text})}  
                   />   
@@ -19,6 +21,8 @@ class Login extends Component {
                   <Image source = {{uri:'https://www.flaticon.com/premium-icon/icons/svg/2889/2889676.svg'}}
                   style = {{ width: 35,height:35, marginLeft: 10, marginTop: 5}}/>
                 <TextInput
+                style={styles.inputText}
+                secureTextEntry={true}
                       placeholder="Password"  
                       onChangeText={(text) => this.setState({text})}  
                   />   
@@ -40,7 +44,7 @@ class Login extends Component {
                     <Text style={{color: '#B14297',fontFamily: 'Montserrat-Bold'}}>  Sign Up</Text>
                 </TouchableOpacity>
                 </View>
-                
+                </View>  
       </ImageBackground>
     </View>
     );
@@ -50,7 +54,7 @@ export default Login
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-      flexDirection: "column",
+      flexDirection: "row"
     },
     image: {
       flex: 1,
@@ -58,16 +62,15 @@ export default Login
       justifyContent: "center"
     },
     border:{
-      marginLeft: 30,
       width: 300,
       marginTop: 5,
-      borderWidth: 3,
+      borderWidth: 1,
       borderRadius: 30,
-      flexDirection: 'row'
+      flexDirection: 'row',
+      borderColor: '#707070'
     },
     signup: {
       width: 300,
-      marginLeft: 30, 
       borderWidth: 2,
       padding: 10,
       borderColor: '#0000',
@@ -79,7 +82,6 @@ export default Login
     },
     loginwithfacebook: {
         width: 300,
-        marginLeft: 30, 
         borderWidth: 2,
         padding: 10,
         borderColor: '#0000',
@@ -91,9 +93,12 @@ export default Login
         flexDirection: 'row',
       },
     login: {
-      marginLeft: 65,
       flexDirection: 'row',
       marginTop: 15,
+    },
+    inputText:{
+      fontFamily: 'Montserrat-Regular',
+      width: 300
     }
   });
 /*class Login extends Component{

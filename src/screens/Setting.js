@@ -1,5 +1,6 @@
 import React, { Component } from 'react';  
 import {Platform, StyleSheet, Text, View, TouchableOpacity, ScrollView, Image} from 'react-native';  
+import Icon from 'react-native-vector-icons/Ionicons';
 class Setting extends Component{
   render(){ 
     return (  
@@ -7,9 +8,7 @@ class Setting extends Component{
         <ScrollView> 
         <View style={styles.headerBar}>
           <TouchableOpacity onPress={() => this.props.navigation.navigate('Profile')}>
-        <Image style={{height: 30, width: 30, justifyContent: "center", marginLeft: 15}}
-          source={require('../images/backarrow.png')}
-          />
+          <Icon name="ios-arrow-back" color='#ffffff' size={50} style={styles.icon}/>
           </TouchableOpacity>
           <Text style={styles.textHeader}>Settings</Text>
         </View>
@@ -137,6 +136,9 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat-Bold',
     fontSize: 17,
     color: '#B14297'
+  },
+  icon:{
+    marginLeft: 30
   }
 });
 export default Setting; 

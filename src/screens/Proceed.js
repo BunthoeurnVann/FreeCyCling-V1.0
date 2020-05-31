@@ -4,14 +4,18 @@ class Registration1 extends Component {
     render(){
         return(
             <View style={styles.container}>
+              <View style={styles.headerBar}>
+          <Text style={styles.textHeader}>Registration</Text>
+        </View>
       <ImageBackground source={require('../images/signup.png')} style={styles.image}>
+        <View style={{alignItems: "center", marginBottom: 320}}>
         <View style={styles.container1}>
-        <Text style={styles.header}>Registration</Text>
         <Text style={styles.text}>Finish your Registration</Text>
       <View style={styles.border}>
             <Image  source = {{uri:'https://image.flaticon.com/icons/png/512/126/126509.png'}}
               style = {{ width: 30,height:30, marginLeft: 10, marginTop: 7}}/>
             <TextInput
+            style={styles.inputText}
               placeholder="Phone Number"  
               onChangeText={(text) => this.setState({text})}/>   
       </View>
@@ -19,6 +23,7 @@ class Registration1 extends Component {
             <Image  source = {{uri:'https://www.flaticon.com/premium-icon/icons/svg/2889/2889312.svg'}}
               style = {{ width: 30,height:30, marginLeft: 10, marginTop: 7}}/>
             <TextInput
+            style={styles.inputText}
               placeholder="Region"  
               onChangeText={(text) => this.setState({text})}/>   
       </View>
@@ -26,6 +31,7 @@ class Registration1 extends Component {
             <Image  source = {{uri:'https://image.flaticon.com/icons/png/512/1077/1077041.png'}}
               style = {{ width: 30,height:30, marginLeft: 10, marginTop: 7}}/>
             <TextInput
+            style={styles.inputText}
               placeholder="Facebook"  
               onChangeText={(text) => this.setState({text})}/>   
       </View>
@@ -35,6 +41,7 @@ class Registration1 extends Component {
                 </Text>
       </TouchableOpacity>
         </View>
+        </View>
       </ImageBackground>
     </View>
         );
@@ -43,13 +50,23 @@ class Registration1 extends Component {
 export default Registration1
 
 const styles = StyleSheet.create({
+  textHeader: {  
+    fontSize: 25,  
+    textAlign: 'center',  
+    margin: 10,
+    fontFamily: 'Montserrat-Bold',
+    color: '#ffffff'
+  },
+  headerBar:{
+    backgroundColor: '#97CACA',
+    height: 65,
+    alignItems: "center",
+    justifyContent: "center",
+  },
   container: {
     flex: 1,
     flexDirection: "column",
   },
-    container1: {
-        marginBottom: 180,
-    },
     header: {
       backgroundColor: '#97CACA',
       padding: 13,
@@ -72,16 +89,15 @@ const styles = StyleSheet.create({
   
     },
     border:{
-      marginLeft: 30,
       width: 300,
       marginTop: 5,
-      borderWidth: 3,
+      borderWidth: 1,
       borderRadius: 30,
-      flexDirection: 'row'
+      flexDirection: 'row',
+      borderColor: '#707070'
     },
     button: {
-      width: 300,
-      marginLeft: 30, 
+      width: 300, 
       borderWidth: 2,
       padding: 10,
       borderColor: '#0000',
@@ -91,5 +107,8 @@ const styles = StyleSheet.create({
       marginTop: 15,
       textAlign: 'center'
     },
-   
+    inputText:{
+      fontFamily: 'Montserrat-Regular',
+      width: 300
+    }
   });

@@ -193,13 +193,17 @@ const styles = StyleSheet.create({
     color: '#B14297',
     marginBottom: 5,
     fontSize: 11,
-    marginLeft: 10
+    textAlign: 'right', 
+    alignSelf: 'stretch'
   },
   categoryType:{
     fontFamily: 'Montserrat-Bold',
     color: '#000000',
     marginBottom: 5,
-    fontSize: 11
+    fontSize: 11,
+    
+    textAlign: 'right', 
+    alignSelf: 'stretch'
   },
   categoryFrame:{
     borderRadius: 20,

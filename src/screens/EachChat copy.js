@@ -3,19 +3,21 @@ import { View, TouchableOpacity, Image, Text, StyleSheet, ScrollView, FlatList, 
 import Icon from 'react-native-vector-icons/Ionicons';
 import io from 'socket.io-client';
 
-
 export default class EachChat extends Component {
+
+    state = {
+        people: [
+            { name: 'emelie johnson', date: '10 Apr 2020', title: 'I love you', nextTitle: '', nextTitle1: '', date1: '12 Jun 2020', title1: 'Feeling hgvgvgvgg', title2: 'Spleepy', id: '1' },
+            { name: 'emelie johnson', date: '10 Apr 2020', title: 'I love you', nextTitle: '', nextTitle1: '', date1: '12 Jun 2020', title1: 'Feeling hgvgvgvgg', title2: 'Spleepy', id: '2' },
+            { name: 'emelie johnson', date: '10 Apr 2020', title: 'I love you', nextTitle: 'Hey you bad guy My friend bit bot ', nextTitle1: 'Boom my godda mana', date1: '12 Jun 2020', title1: 'Feeling hgvgvgvgg', title2: 'Spleepy', id: '3' },
+        ]
+    }
 
     constructor(props){
         super(props);
         this.state = {
             chatMessage: "",
-            chatMessages: [],
-            people: [
-                { name: 'emeliejohnson', date: '10 Apr 2020', title: 'I love you', nextTitle: '', nextTitle1: '', date1: '12 Jun 2020', title1: 'Feeling hgvgvgvgg', title2: 'Spleepy', id: '1' },
-                { name: 'xjoannex', date: '10 Apr 2020', title: 'I love you', nextTitle: '', nextTitle1: '', date1: '12 Jun 2020', title1: 'Feeling hgvgvgvgg', title2: 'Spleepy', id: '2' },
-                { name: 'brickhompton', date: '10 Apr 2020', title: 'I love you', nextTitle: 'Hey you bad guy My friend bit bot ', nextTitle1: 'Boom my godda mana', date1: '12 Jun 2020', title1: 'Feeling hgvgvgvgg', title2: 'Spleepy', id: '3' },
-            ]
+            chatMessages: []
         };
     }
 
@@ -38,17 +40,51 @@ export default class EachChat extends Component {
         ));
 
         return (
+            <View style={styles.nanana}>
+
+                <Text>Enter msg:</Text>
+
+                <TextInput
+                    style={{ height: 40, borderWidth: 2}}
+                    autoCorrect={false}
+                    value={this.state.chatMessage}
+                    onSubmitEditing={() => this.submitChatMessage()}
+                    onChangeText={chatMessage => {
+                        this.setState({ chatMessage });
+                    }}
+                />
+
+                {chatMessages}
+
+            </View>
+        );
+    }
+    
+    
+}
+const styles = StyleSheet.create({
+    nanana: {
+        flex: 1,
+        backgroundColor: "#00F5FCFF"
+    },
+});
+/*
+
+class EachChat extends Component {
+    
+    render() {
+        return (
             <View style={{marginBottom: 510}}>
                 <View style={styles.headerBar}>
                     <TouchableOpacity onPress={() => this.props.navigation.navigate('Chat')}>
                     <Icon name="ios-arrow-back" color='#ffffff' size={50} style={styles.icon}/>
                     </TouchableOpacity>
-                    <Text style={styles.textHeader}>xjoannex</Text>
+                    <Text style={styles.textHeader}>MaDaKac</Text>
                 </View>
                     <View>
                         <View style={styles.container}>
                             <View style={styles.settingRegion}>
-                                <Text style={styles.textName}>xjoannex</Text>
+                                <Text style={styles.textName}>xxjoanne</Text>
                                 <View style={styles.regionText}>
                                     <Text style={{fontSize: 13, fontFamily: 'Montserrat-Regular'}}>Phnom Penh</Text>
                                     <Text>,</Text>
@@ -61,34 +97,34 @@ export default class EachChat extends Component {
                             data={this.state.people}
                             renderItem={({ item }) => (
                                 <View style={{ marginLeft: 20, marginRight: 20 }}>
-                                    <ScrollView>
+                                    <View>
                                         <View>
                                             <View>
-                                                <View>
-                                                    <Text style={styles.itemName}>{item.name}</Text>
-                                                    <Text style={styles.itemDateOther}>{item.date}</Text>
-                                                </View>
-                                                <View>
-                                                    <Text style={styles.itemTitle}>{item.title}</Text>
-                                                    <Text style={styles.itemTitle}>{item.titleNext1}</Text>
-                                                </View>
+                                                <Text style={styles.itemName}>{item.name}</Text>
+                                                <Text style={styles.itemDate}>{item.date}</Text>
                                             </View>
                                             <View>
-                                                <View>
-                                                    <Text style={styles.itemDateMe}>{item.date1}</Text>
-                                                </View>
-                                                <View style={styles.itemTitle1}>
-                                                    <Text style={styles.itemTitle1}>{chatMessages}</Text>
-                                                    {chatMessages}
-                                                </View>
+                                                <Text style={styles.itemTitle}>{item.title}</Text>
+                                                <Text style={styles.itemTitle}>{item.titleNext}</Text>
+                                                <Text style={styles.itemTitle}>{item.titleNext1}</Text>
                                             </View>
                                         </View>
-                                    </ScrollView>
+                                        <View>
+                                            <View>
+                                                <Text style={styles.itemDate}>{item.date1}</Text>
+                                            </View>
+                                            <View>
+                                                <Text style={styles.itemTitle1}>{item.title1}</Text>
+                                                <Text style={styles.itemTitle1}>{item.title2}</Text>
+                                            </View>
+                                        </View>
+                                    </View>
                                 </View>
                             )}
                         />
                         <View style={styles.sendMessage}>
-                            <TextInput style={styles.inputSearch}
+                            <TextInput 
+                                style={styles.inputSearch} 
                                 placeholder="Send a message"
                                 autoCorrect={false}
                                 value={this.state.chatMessage}
@@ -143,14 +179,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         marginBottom: 5
     },
-    itemDateMe: {
-        fontFamily: 'Montserrat-Regular',
-        fontSize: 11,
-        marginBottom: 5,
-        textAlign: 'right', 
-        alignSelf: 'stretch'
-    },
-    itemDateOther: {
+    itemDate: {
         fontFamily: 'Montserrat-Regular',
         fontSize: 11,
         marginBottom: 5
@@ -165,9 +194,7 @@ const styles = StyleSheet.create({
     itemTitle1: {
         fontFamily: 'Montserrat-Regular',
         fontSize: 14,
-        backgroundColor: '#B14297',
-        color: 'white',
-        textAlign: 'right'
+        backgroundColor: '#B14297'
     },
     inputSearch: {
         height: 36,
@@ -191,3 +218,4 @@ const styles = StyleSheet.create({
         marginLeft: 30
       }
 });
+*/

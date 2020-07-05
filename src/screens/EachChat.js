@@ -28,7 +28,7 @@ export default class EachChat extends Component {
 
     submitChatMessage(){
         this.socket.emit("chat message", this.state.chatMessage);
-        this.setState({chatMessage: ""});
+        this.setState({chatMessage: ""+"\n"});
     }
 
     render() {
@@ -79,7 +79,6 @@ export default class EachChat extends Component {
                                                 </View>
                                                 <View style={styles.itemTitle1}>
                                                     <Text style={styles.itemTitle1}>{chatMessages}</Text>
-                                                    {chatMessages}
                                                 </View>
                                             </View>
                                         </View>
